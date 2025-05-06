@@ -1,0 +1,25 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# ignore all files starting with .
+.*
+/.DS_Store
+*.DS_Store
+/.ftpconfig
+/.ftpignore
+/.sftp-config.json
+!.gitignore
+.vscode
+
+# Virtual environment
+venv/
+env/
+.venv/
+
+# Environment variables file
+.env
+
+# Log files
+error.log
