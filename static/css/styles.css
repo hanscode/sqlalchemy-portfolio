@@ -274,6 +274,10 @@ Projects
 #projects .a-project p {
     margin-top: 2rem;
 }
+#projects .a-project a:hover, #projects .a-project a:hover i {
+    color: rgba(255, 255, 255, 0.5);
+}
+
 
 #projects #triangle4 {
     width: 0;

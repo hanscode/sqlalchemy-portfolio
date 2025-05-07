@@ -11,7 +11,10 @@
 <section id="about">
     <h2>About Me</h2>
     <p>
-        Experienced Front-End and Python developer with a focus on building pixel perfect, accessible products for the web. I live for the details whether it be cleanliness of code, or wrangling pixels. I'm dedicated, loyal, and personable. I turned a love of using the web to a love of creating it and have a continued drive to learn more and more, facing each challenge with fervor and determination.
+        Experienced Front-End and Python developer with a focus on building pixel perfect, accessible products for the
+        web. I live for the details whether it be cleanliness of code, or wrangling pixels. I'm dedicated, loyal, and
+        personable. I turned a love of using the web to a love of creating it and have a continued drive to learn more
+        and more, facing each challenge with fervor and determination.
     </p>
     <div id="triangle1"></div>
     <div id="triangle2"></div>
@@ -37,76 +40,34 @@
     <i class="fas fa-file-code"></i>
     <h2>Projects</h2>
     <div id="project-list">
-        <div id="project1" class="a-project">
-            <h3>Project Title</h3>
-            <a href="#" class="github-btn">
+        {% for project in projects %}
+        <div id="project{{ project.id }}" class="a-project">
+            <h3>{{ project.title }}</h3>
+            <a href="{{ project.github }}" class="github-btn" target="_blank" rel="noopener noreferrer nofollow">
                 <i class="fab fa-github"></i>
                 View on GitHub
             </a>
             <p>
-                Pastry wafer chocolate cake caramels.
-                Gummi bears pudding sugar plum macaroon.
+                {{ project.description }}
             </p>
             <p>
-                Skills: Pastry wafer chocolate cake caramels.
-                Gummi bears pudding sugar plum macaroon.
+                Skills: {{ project.skills }}
             </p>
         </div>
-        <div id="project2" class="a-project">
-            <h3>Project Title</h3>
-            <a href="#" class="github-btn">
-                <i class="fab fa-github"></i>
-                View on GitHub
-            </a>
-            <p>
-                Pastry wafer chocolate cake caramels.
-                Gummi bears pudding sugar plum macaroon.
-            </p>
-            <p>
-                Skills: Pastry wafer chocolate cake caramels.
-                Gummi bears pudding sugar plum macaroon.
-            </p>
-        </div>
-        <div id="project3" class="a-project">
-            <h3>Project Title</h3>
-            <a href="#" class="github-btn">
-                <i class="fab fa-github"></i>
-                View on GitHub
-            </a>
-            <p>
-                Pastry wafer chocolate cake caramels.
-                Gummi bears pudding sugar plum macaroon.
-            </p>
-            <p>
-                Skills: Pastry wafer chocolate cake caramels.
-                Gummi bears pudding sugar plum macaroon.
-            </p>
-        </div>
-        <div id="project4" class="a-project">
-            <h3>Project Title</h3>
-            <a href="#" class="github-btn">
-                <i class="fab fa-github"></i>
-                View on GitHub
-            </a>
-            <p>
-                Pastry wafer chocolate cake caramels.
-                Gummi bears pudding sugar plum macaroon.
-            </p>
-            <p>
-                Skills: Pastry wafer chocolate cake caramels.
-                Gummi bears pudding sugar plum macaroon.
-            </p>
-        </div>
+        {% endfor %}
     </div>
     <div id="triangle4"></div>
 </section>
 <section id="contact">
     <i class="fas fa-paper-plane"></i>
     <h2>Contact Me</h2>
-    <p>You can reach me at <a target="_blank" rel="noopener noreferrer nofollow" href="mailto:hans@steffens.co">hans@steffens.co</a> or follow me on one of the social networks listed below. Occasionally I take freelance work if it tickles my fancy. That includes design, Python, Front-End, WordPress development and / or web support.</p>
+    <p>You can reach me at <a target="_blank" rel="noopener noreferrer nofollow"
+            href="mailto:hans@steffens.co">hans@steffens.co</a> or follow me on one of the social networks listed below.
+        Occasionally I take freelance work if it tickles my fancy. That includes design, Python, Front-End, WordPress
+        development and / or web support.</p>
     <p>
         <i class="fas fa-envelope"></i>
-        <a target="_blank" rel="noopener noreferrer nofollow" href="mailto:hans@steffens.co">hans@steffens.co</a> 
+        <a target="_blank" rel="noopener noreferrer nofollow" href="mailto:hans@steffens.co">hans@steffens.co</a>
     </p>
 </section>
 

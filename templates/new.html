@@ -6,7 +6,7 @@
 
 {% block content %}
 <section id="form">
-    <form action="">
+    <form action="{{ url_for('add_project') }}" method="POST">
         <label for="title">Project Title</label>
         <input type="text" name="title" id="title" placeholder="Project Name" required>
         <label for="date">Completion Date</label>
