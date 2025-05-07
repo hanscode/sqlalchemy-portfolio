@@ -41,13 +41,13 @@ def add_project():
 
 @app.route('/project/<id>')
 def project_detail(id):
-    project = Project.query.get(id)
+    project = Project.query.get_or_404(id)
     return render_template('detail.html', project=project)
 
 
 @app.route('/project/<id>/edit', methods=['GET', 'POST'])
 def edit_project(id):
-    project = Project.query.get(id)
+    project = Project.query.get_or_404(id)
     if request.form:
         raw_date = request.form['date']
         project.title = request.form['title']
@@ -61,7 +61,7 @@ def edit_project(id):
 
 @app.route('/project/<id>/delete', methods=['GET'])
 def delete_project(id):
-    project = Project.query.get(id)
+    project = Project.query.get_or_404(id)
     db.session.delete(project)
     db.session.commit()
     return redirect(url_for('index'))
@@ -70,6 +70,10 @@ def delete_project(id):
 @app.route('/about')
 def about():
     return render_template('about.html')
+
+@app.errorhandler(404)
+def not_found(error):
+    return render_template('404.html', msg=error), 404
 
 
 
