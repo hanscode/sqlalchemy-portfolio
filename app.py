@@ -39,9 +39,32 @@ def add_project():
     return render_template('new.html')
 
 
-@app.route('/projects')
-def project():
-    return render_template('detail.html')
+@app.route('/project/<id>')
+def project_detail(id):
+    project = Project.query.get(id)
+    return render_template('detail.html', project=project)
+
+
+@app.route('/project/<id>/edit', methods=['GET', 'POST'])
+def edit_project(id):
+    project = Project.query.get(id)
+    if request.form:
+        raw_date = request.form['date']
+        project.title = request.form['title']
+        project.completion_date = clean_completion_date(raw_date)
+        project.description = request.form['desc']
+        project.skills = request.form['skills']
+        project.github = request.form['github']
+        db.session.commit()
+        return redirect(url_for('project_detail', id=id))
+    return render_template('edit.html', project=project)
+
+@app.route('/project/<id>/delete', methods=['GET'])
+def delete_project(id):
+    project = Project.query.get(id)
+    db.session.delete(project)
+    db.session.commit()
+    return redirect(url_for('index'))
 
 
 @app.route('/about')

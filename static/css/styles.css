@@ -274,7 +274,10 @@ Projects
 #projects .a-project p {
     margin-top: 2rem;
 }
-#projects .a-project a:hover, #projects .a-project a:hover i {
+#projects .a-project a:hover, 
+#projects .a-project a:hover i,
+.header a:hover, 
+.header a:hover i {
     color: rgba(255, 255, 255, 0.5);
 }
 

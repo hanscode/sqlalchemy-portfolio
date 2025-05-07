@@ -2,19 +2,21 @@
 
 {% block header %}
 
-<h1>Python Title</h1>
-<p>Jan 2021</p>
-<a href="#" class="github-btn">
+<h1>{{ project.title }}</h1>
+<p>
+    {% set date = project.completion_date %}
+    {{ date.strftime('%b, %Y') }}
+</p>
+
+<a href="{{ project.github }}" target="_blank" class="github-btn">
     <i class="fab fa-github"></i>
     View on GitHub
 </a>
+
 <ul class="project-skills">
-    <div>
-        <li>Catching exceptions</li>
-        <li>Creating a loop</li>
-        <li>Accepting user input</li>
-        <li>Conditional statements</li>
-    </div>
+    {% for skill in project.skills.split(',') %}
+    <li>{{ skill.strip() }}</li>
+    {% endfor %}
 </ul>
 {% endblock %}
 
@@ -24,19 +26,16 @@
     <div id="triangle5"></div>
     <h2>Description</h2>
     <p>
-        Lemon drops muffin macaroon pastry sweet muffin soufflé.
-        Chocolate cake sesame snaps gummi bears tiramisu toffee.
-        Ice cream toffee marshmallow sugar plum croissant chupa chups powder.
-        Cotton candy sweet caramels pastry candy.
+        {{ project.description }}
     </p>
     <div id="triangle6"></div>
 </section>
 <section id="edit-delete">
-    <a href="#">
+    <a href="{{ url_for('edit_project', id=project.id) }}">
         <i class="fas fa-edit"></i>
         Edit
     </a>
-    <a href="#">
+    <a href="{{ url_for('delete_project', id=project.id) }}">
         <i class="far fa-trash-alt"></i>
         Delete
     </a>
