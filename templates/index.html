@@ -2,7 +2,7 @@
 
 {% block header %}
 <h1>Python Developer</h1>
-<p>I'm a design-minded Pythong developer focused on building accessible products for the web.</p>
+<p>I'm a design-minded Python developer focused on building accessible products for the web.</p>
 <img src="{{ url_for('static', filename='images/headshot.png')}}" alt="Headshot of myself">
 {% endblock %}
 
@@ -42,7 +42,10 @@
     <div id="project-list">
         {% for project in projects %}
         <div id="project{{ project.id }}" class="a-project">
-            <h3>{{ project.title }}</h3>
+            <h3>{{ project.title }} <a href="{{ url_for('project_detail', id=project.id) }}">
+                <i class="fas fa-external-link-alt"></i>
+            </a></h3>
+
             <a href="{{ project.github }}" class="github-btn" target="_blank" rel="noopener noreferrer nofollow">
                 <i class="fab fa-github"></i>
                 View on GitHub

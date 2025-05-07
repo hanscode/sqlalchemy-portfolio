@@ -16,6 +16,21 @@ The application lets the user add or edit project information. When adding or ed
 - SQLite (local database)
 - Datetime module (for handling dates and timestamps)
 
+## Features
+
+- **Home/List View**  
+  Displays all projects with title and short description.  
+- **Detail View**  
+  Click on a project to see full details: title, completion date, description, skills and GitHub link.  
+- **Add Project**  
+  Fill out a form to create a new project (title, date, skills, description, repo URL).  
+- **Edit Project**  
+  Update any existing project via an edit form pre-populated with its current data.  
+- **Delete Project**  
+  Remove a project from the portfolio.
+- **Persistent Storage**  
+  SQLite database managed through SQLAlchemy ORM.
+
 ## Getting Started
 Follow these steps to set up and run the application locally.
 
@@ -58,6 +73,46 @@ Once inside the project folder and with your virtual environment active:
 python app.py
 ```
 You will see the application menu and can start interacting with the inventory!
+
+## Project File Structure
+```sh
+sqlalchemy-portfolio/
+├── LICENSE             # MIT License file
+├── README.md           # Project documentation
+├── app.py              # Main Flask application with routes
+├── instance            # Instance folder (config & DB)
+│   └── projects.db     # SQLite database file
+├── models.py           # SQLAlchemy models and DB setup
+├── requirements.txt    # Python dependencies
+├── static              # Static assets folder
+│   ├── css             # Stylesheet directory
+│   │   └── styles.css  # Custom CSS styles
+│   └── images          # Images directory
+│       └── headshot.png # Headshot image for About page
+└── templates           # Jinja2 templates folder
+    ├── 404.html        # Custom 404 error page
+    ├── about.html      # About page template
+    ├── detail.html     # Project detail page template
+    ├── edit.html       # Edit project form template
+    ├── index.html      # Home page listing all projects
+    ├── layout.html     # Base layout template
+    └── new.html        # New project form template
+```
+
+## What I Learned
+
+- **Flask Routing & Views**  
+  Handling `GET` vs. `POST` requests, dynamic URL parameters, redirects.  
+- **Jinja2 Templating**  
+  Template inheritance, looping and string filters in templates.  
+- **SQLAlchemy ORM**  
+  Defining models, creating sessions, querying, inserting, updating and deleting records.  
+- **Form Handling & Validation**  
+  Using HTML5 `required` attributes, parsing `input type="month"` into `datetime.date`.  
+- **Application Structure**  
+  Organizing Flask apps with separate modules for routes, models, static assets, and templates.  
+- **User Experience Enhancements**  
+  Pre-populating form fields, cancel/reset UX patterns.
 
 
 ## License

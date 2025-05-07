@@ -258,6 +258,11 @@ Projects
     margin-bottom: 2rem;
     margin-top: 3rem;
 }
+#projects .a-project h3 a > i {
+    color: var(--primary);
+    text-decoration: none;
+    font-size: 25px;
+}
 
 .github-btn {
     border-radius: 10px;
