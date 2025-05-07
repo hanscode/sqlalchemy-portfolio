@@ -104,7 +104,7 @@ sqlalchemy-portfolio/
 - **Flask Routing & Views**  
   Handling `GET` vs. `POST` requests, dynamic URL parameters, redirects.  
 - **Jinja2 Templating**  
-  Template inheritance, looping and string filters in templates.  
+  Template inheritance, context processors, looping and string filters in templates.  
 - **SQLAlchemy ORM**  
   Defining models, creating sessions, querying, inserting, updating and deleting records.  
 - **Form Handling & Validation**  

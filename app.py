@@ -11,6 +11,14 @@ def clean_completion_date(date_str):
     year, month = date_str.split('-')
     return datetime.date(int(year), int(month), 1)
 
+@app.context_processor
+def inject_projects():
+    """
+    Injects all projects into the template context.
+    """
+    projects = Project.query.all()
+    return dict(projects=projects)
+
 
 @app.route('/')
 def index():
