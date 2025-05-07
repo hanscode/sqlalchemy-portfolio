@@ -8,6 +8,7 @@ app = Flask(__name__)
 app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///projects.db"
 db = SQLAlchemy(app)
 
+
 class Project(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     created = db.Column('Created', db.DateTime, default=datetime.datetime.now)

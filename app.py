@@ -11,7 +11,6 @@ def clean_completion_date(date_str):
     year, month = date_str.split('-')
     return datetime.date(int(year), int(month), 1)
 
-   
 
 @app.route('/')
 def index():
@@ -21,7 +20,7 @@ def index():
 
 @app.route('/new', methods=['GET', 'POST'])
 def add_project():
-    
+
     if request.form:
         print(request.form)
         print(request.form['title'])
@@ -59,6 +58,7 @@ def edit_project(id):
         return redirect(url_for('project_detail', id=id))
     return render_template('edit.html', project=project)
 
+
 @app.route('/project/<id>/delete', methods=['GET'])
 def delete_project(id):
     project = Project.query.get_or_404(id)
@@ -71,10 +71,10 @@ def delete_project(id):
 def about():
     return render_template('about.html')
 
+
 @app.errorhandler(404)
 def not_found(error):
     return render_template('404.html', msg=error), 404
-
 
 
 if __name__ == '__main__':
